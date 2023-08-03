@@ -2,11 +2,26 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-let calendarInfo = JSON.parse(localStorage.getItem("calInfo")) || [];
+//let calendarInfo = JSON.parse(localStorage.getItem("calendarInfo")) || [];
 
-let saveButton = $(".saveBtn")
 
-saveButton.on("click", function (event) {
+document.querySelector('textarea[data-time="9"]').value = localStorage.getItem("9")
+document.querySelector('textarea[data-time="10"]').value = localStorage.getItem("10")
+document.querySelector('textarea[data-time="11"]').value = localStorage.getItem("11")
+document.querySelector('textarea[data-time="12"]').value = localStorage.getItem("12")
+document.querySelector('textarea[data-time="1"]').value = localStorage.getItem("1")
+document.querySelector('textarea[data-time="2"]').value = localStorage.getItem("2")
+document.querySelector('textarea[data-time="3"]').value = localStorage.getItem("3")
+document.querySelector('textarea[data-time="4"]').value = localStorage.getItem("4")
+document.querySelector('textarea[data-time="5"]').value = localStorage.getItem("5")
+
+
+
+let saveButton = $(".saveBtn");
+
+
+
+saveButton.on("click", function(event) {
   if (event.target.matches("button"))  {
     
     localStorage.setItem(this.dataset.time, this.previousElementSibling.value);
@@ -14,14 +29,14 @@ saveButton.on("click", function (event) {
   } else if (event.target.matches("i")) {
     localStorage.setItem(this.dataset.time, this.previousElementSibling.value);
 
-    let userInput = this.previousElementSibling.value;
-    let dataNumber = this.dataset.time;
+    // let userInput = this.previousElementSibling.value;
+    // let dataNumber = this.dataset.time;
 
-    calendarInfo.push(userInput, dataNumber);
-    localStorage.setItem("calendarInfo", JSON.stringify(calendarInfo))
+
+    //calendarInfo.push(userInput, dataNumber);
+    //localStorage.setItem("calendarInfo", JSON.stringify(calendarInfo))
   }
 })
-
 
 
 
